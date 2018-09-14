@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nfield.Aad.Services;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,10 +11,11 @@ namespace Nfield.Aad
         public App()
         {
             InitializeComponent();
+            DependencyService.Register<RestCall>();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
-
+        
         protected override void OnStart()
         {
             // Handle when your app starts

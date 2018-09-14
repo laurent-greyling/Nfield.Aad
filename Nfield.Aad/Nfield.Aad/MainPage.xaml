@@ -6,9 +6,30 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+        <Label Text="Welcome to Something to do with Nfield" 
            HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="CenterAndExpand"
+           FontSize="Large"/>
+        <Picker x:Name="TestServer"
+                    HorizontalOptions="FillAndExpand">
+            <Picker.Items>
+                <x:String>Blue</x:String>
+                <x:String>RC</x:String>
+                <x:String>Beta</x:String>
+            </Picker.Items>
+        </Picker>
+        <Label Text="Domain"/>
+        <Entry x:Name="DomainName"/>
+
+        <Button Text="SignIn" Clicked="Nfield_Api_SignIn"/>
+        <ActivityIndicator 
+            x:Name="Loading"
+            Color="#EA592E"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            IsRunning="{Binding AuthResult.IsNotCompleted}"
+            IsVisible="{Binding AuthResult.IsNotCompleted}"
+            PropertyChanged="Navigate_On_Success"/>
     </StackLayout>
 
 </ContentPage>
